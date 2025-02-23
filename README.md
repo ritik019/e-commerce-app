@@ -1,126 +1,141 @@
-# E-Commerce Website
+# E-Commerce Application
 
-A full-stack e-commerce website built with React.js, Node.js, Express, MongoDB, and Stripe integration.
+A full-stack e-commerce application built with React, Node.js, Express, and MongoDB.
 
 ## Features
 
-- User authentication (signup, login)
-- Product management
-- Shopping cart functionality
-- Order management
-- Stripe payment integration
-- Responsive design with Tailwind CSS
+- User Authentication (Login/Register)
+- Admin Dashboard
+- Product Management (CRUD operations)
+- Shopping Cart
+- Secure Checkout with Stripe
+- Order History
+- Responsive Design
 
 ## Tech Stack
 
 ### Frontend
-- React.js
+- React
 - Redux Toolkit for state management
-- React Router for navigation
 - Tailwind CSS for styling
-- Stripe for payment processing
+- Axios for API calls
+- React Router for navigation
 
 ### Backend
 - Node.js
 - Express.js
 - MongoDB with Mongoose
 - JWT for authentication
-- Bcrypt for password hashing
+- Stripe for payments
 
-## Setup Instructions
+## Getting Started
 
 ### Prerequisites
-- Node.js installed
-- MongoDB installed and running
-- Stripe account for payment processing
+- Node.js (v14 or higher)
+- MongoDB
+- npm or yarn
 
-### Backend Setup
-1. Navigate to the backend directory:
-   ```bash
-   cd backend
-   ```
+### Installation
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+1. Clone the repository
+```bash
+git clone https://github.com/ritik019/e-commerce-app.git
+cd e-commerce-app
+```
 
-3. Create a .env file with the following variables:
-   ```
-   PORT=5000
-   MONGODB_URI=your_mongodb_uri
-   JWT_SECRET=your_jwt_secret_key
-   STRIPE_SECRET_KEY=your_stripe_secret_key
-   ```
+2. Install Backend Dependencies
+```bash
+cd backend
+npm install
+```
 
-4. Start the server:
-   ```bash
-   npm run dev
-   ```
+3. Install Frontend Dependencies
+```bash
+cd frontend
+npm install
+```
 
-### Frontend Setup
-1. Navigate to the frontend directory:
-   ```bash
-   cd frontend
-   ```
+4. Set up environment variables
+Create a `.env` file in the backend directory with:
+```
+PORT=5001
+MONGODB_URI=mongodb://127.0.0.1:27017/ecommerce
+JWT_SECRET=mysupersecretkey123456789
+STRIPE_SECRET_KEY=your_stripe_secret_key
+```
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+Create a `.env` file in the frontend directory with:
+```
+REACT_APP_API_URL=http://localhost:5001/api
+REACT_APP_STRIPE_PUBLIC_KEY=your_stripe_public_key
+```
 
-3. Create a .env file with the following variables:
-   ```
-   REACT_APP_STRIPE_PUBLIC_KEY=your_stripe_public_key
-   ```
+5. Run the application
+Backend:
+```bash
+cd backend
+npm start
+```
 
-4. Start the development server:
-   ```bash
-   npm start
-   ```
+Frontend:
+```bash
+cd frontend
+npm start
+```
 
-## Environment Variables
+The application will be available at:
+- Frontend: http://localhost:3002
+- Backend API: http://localhost:5001
 
-### Backend
-- `PORT`: Server port (default: 5000)
-- `MONGODB_URI`: MongoDB connection string
-- `JWT_SECRET`: Secret key for JWT token generation
-- `STRIPE_SECRET_KEY`: Stripe secret key for payment processing
+## Admin Access
+To access admin features:
+1. Register a new account
+2. Use the provided admin creation script:
+```bash
+cd backend
+node createAdmin.js
+```
 
-### Frontend
-- `REACT_APP_STRIPE_PUBLIC_KEY`: Stripe public key for payment processing
+Admin credentials:
+- Email: admin@example.com
+- Password: admin123456
+
+## Features
+
+### User Features
+- Browse products
+- Add products to cart
+- Manage cart items
+- Secure checkout
+- View order history
+- Update profile
+
+### Admin Features
+- Add/Edit/Delete products
+- View all orders
+- Manage user accounts
+- Access sales analytics
 
 ## API Endpoints
 
 ### Auth Routes
-- POST `/api/auth/register` - Register a new user
-- POST `/api/auth/login` - Login user
-- GET `/api/auth/profile` - Get user profile
+- POST /api/auth/register - Register new user
+- POST /api/auth/login - User login
 
 ### Product Routes
-- GET `/api/products` - Get all products
-- GET `/api/products/:id` - Get single product
-- POST `/api/products` - Create product (Admin only)
-- PUT `/api/products/:id` - Update product (Admin only)
-- DELETE `/api/products/:id` - Delete product (Admin only)
+- GET /api/products - Get all products
+- GET /api/products/:id - Get single product
+- POST /api/products - Add new product (Admin)
+- PUT /api/products/:id - Update product (Admin)
+- DELETE /api/products/:id - Delete product (Admin)
 
 ### Order Routes
-- POST `/api/orders` - Create new order
-- GET `/api/orders/myorders` - Get user orders
-- GET `/api/orders/:id` - Get order by ID
-- PUT `/api/orders/:id/pay` - Update order to paid
-
-### Stripe Routes
-- POST `/api/stripe/create-payment-intent` - Create payment intent
+- POST /api/orders - Create new order
+- GET /api/orders - Get user orders
+- GET /api/orders/:id - Get order details
 
 ## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
-
-This project is licensed under the MIT License.
+[MIT](https://choosealicense.com/licenses/mit/)
